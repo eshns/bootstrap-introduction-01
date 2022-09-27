@@ -305,6 +305,37 @@
     <section class="seccion">
         <h1 class="text-center my-5 heading">Toasts</h1>
 
+        <button type="button" class="btn btn-primary w-100" id="toastBtn">Mostrar Notificacion</button>
+
+        <!-- Este div posiciona el toast en la parte inferior derecha del navegador -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 10;">
+            <div class="toast hidden" id="toast">
+                <div class="toast-header">
+    
+                    <!-- agegar el w-100 para que funcione el flexbox -->
+                    <!-- <div class="d-flex w-100 justify-content-between">
+                        <strong>
+                            Email...
+                        </strong>
+                        <small>Hace 3 minutos</small>
+                        <button type="button" class="btn-close"></button>
+                    </div> -->
+    
+                    <!-- Segunda forma de centrar -->
+                    <strong class="me-auto">
+                        Email...
+                    </strong>
+                    <small>Hace 3 minutos</small>
+                    <button type="button" data-bs-dismiss="toast" class="btn-close"></button>
+                </div>
+                <div class="toast-body">
+                    <p>Has recibido un mensaje</p>
+                </div>
+                
+            </div>
+        </div>
+        
+
     </section>
 
     <section class="seccion">
@@ -328,5 +359,17 @@
     </section>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.querySelector('#toastBtn').addEventListener( 'click', e => {
+            e.preventDefault();
+            console.log('clickeanndo')
+
+            const toastEl = document.querySelector('#toast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+
+        })
+    </script>
     </body>
 </html>
